@@ -25,7 +25,7 @@ def k_folds_cross_validation(dataset, dataset_name, repeats):
         temp_results=[]
         results=[]
         size=len(dataset)
-        kf = KFold(10,random_state=1,shuffle=True)
+        kf = KFold(10,random_state=1,shuffle=True) # 10 fold cross validation
         for i, (train_rows, test_rows) in enumerate(kf.split(dataset)): # Splitting the data using KFold method from scikit
             data_test = [] # test patterns
             data_test_class=[] # test class

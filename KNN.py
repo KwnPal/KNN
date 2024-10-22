@@ -4,16 +4,16 @@ import statistics as st
 import time
 
 def KNN(pattern, classes, points, k): #pattern-->a set of patterns,point-->the point that we want to classify
-    print("Using KNN")             #classes-->the categories of each pattern k--> The number of closest neighbors
+                                      #classes-->the categories of each pattern k--> The number of closest neighbors
     mainclasses=categories(classes) #stores categories
     classes=NumericClasses(classes) #converts categories to numeric
     results=[]
     for j in range(len(points)):
         neighbors=[] 
         maxcategory=[] # votes of categories
-        dist=[]#An array type[category,distance]
+        dist=[] # An array type[category,distance]
         for i in range(len(pattern)):
-            dist.append((classes[i],euclidian_distance(points[j],pattern[i])))
+            dist.append((classes[i], euclidian_distance(points[j],pattern[i])))
         dist.sort(key=lambda dist: dist[1])
         for i in range(k):
             neighbors.append(dist[i][0])
@@ -26,13 +26,13 @@ def KNN(pattern, classes, points, k): #pattern-->a set of patterns,point-->the p
 
 
 def CB_KNN(pattern,classes,points): # Pattern--> a set of patterns,point-->the point that we want to classify
-    print("Using CB_KNN")           # Classes--> the categories of each pattern 
+                                    # Classes--> the categories of each pattern 
     mainclasses=categories(classes) # Stores categories
     classes=NumericClasses(classes) # Converts categories to numeric
     results=[]
     for numofpoints in range(len(points)):
-        neighbors=[]# K closest neighbors
-        dist=[]# An array type[category, distance]
+        neighbors=[] # K closest neighbors
+        dist=[] # An array type[category, distance]
         harmonic=[]
         for i in range(len(pattern)):
             dist.append((classes[i],euclidian_distance(points[numofpoints],pattern[i])))
